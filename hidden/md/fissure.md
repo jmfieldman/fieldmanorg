@@ -27,3 +27,5 @@ finished the engine (which was the main goal) and didn’t really want to spend
 time on this tedious part of the game.
 
 ![Fissure](/img/pg/fissure/fiss1.jpeg) {.full}
+
+Fissure is open source.  [Github Here](https://github.com/jmfieldman/Fissure).
