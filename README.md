@@ -8,3 +8,7 @@ like http://www.fieldman.org/theseus, that gets translated to http://www.fieldma
 At that point, index.php renders whatever markdown is at hidden/md/*name*.md
 
 The main menu is rendered if there is no specified path.
+
+Certain folders like ```files``` and ```img``` are exempt from this routing so that the can be accessed directly by the browser.
+
+Feel free to use this code to make your own super-simple markdown-based website!
