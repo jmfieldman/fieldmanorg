@@ -111,7 +111,11 @@ In the end, we get back an array that contains all of the blocks that will be pu
 
 Let’s quickly go over one helper function. This is how we determine the center of a triangle in a regular unit cartesian grid, given its triangle index (tri):
 
-```
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+```objectivec
 ret.x = TRI_COL(tri) - (TRI_ROW(tri) * 0.5) + (TRI_ORI(tri) * 0.5);
 ret.y = (TRI_ROW(tri) * (SQRT_3_F / 2.0)) +
         ( (TRI_ORI(tri) == TRI_ORIENT_UP) ? (SQRT_3_F / 3.0)
@@ -124,7 +128,7 @@ For Y, each row adds (√3)/2 (the height of a 30/60/90 triangle), then we have 
 
 Each puzzle lies somewhere in the middle of a 32×16 grid of triangles, where each triangle is either a wall or non-wall. Because the puzzle can be arbitrarily shaped, we need to figure out how to center the non-wall triangles in the view. First, let’s figure out the unit height and unit width of the visible puzzle:
 
-```
+```objectivec
 for (int tri = 0; tri < MAX_TRIS_PER_LEVEL; tri++) {
   int row = TRI_ROW(tri);
 
@@ -156,7 +160,7 @@ float unitWidth  = (cenOfRightMostTri - cenOfLeftMostTri) + 1.0;
 
 We also need to determine how many horizontal edges fit inside that absolute width:
 
-```
+```objectivec
 // Normalize to upside tris
 int colRM = TRI_COL(rightMostTri);
 int rowRM = TRI_ROW(rightMostTri);
@@ -173,7 +177,7 @@ float numHorizEdges = (colRM - colLM + 1) + ((rowLM - rowRM) * 0.5);
 
 Finally, Calculate the actual length of an edge in screen coordinates, and the origin delta needed to shift the puzzle into the middle of the screen:
 
-```
+```objectivec
 // Inset the grid by one edge unit
 unitHeight    += 1;
 unitWidth     += 1;
